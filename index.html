@@ -1,115 +1,167 @@
-<!DOCTYPE html><html lang="fr">  <head>  
+<!DOCTYPE html>  <html lang="fr">  
+<head>  
   <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>BizRadar — Business & Formations</title>  
+  <title>BizRadar — Business Hub</title>  
   <link rel="stylesheet" href="styles.css">  
-</head><body><header class="topbar">  
-  <a class="logo" href="#accueil">🚀 BizRadar</a>  <nav>  
+</head>  <body>  <header class="topbar">  
+  <a href="#accueil" class="logo">  
+    <span>BR</span> BizRadar  
+  </a>    <nav id="mainNav">  
     <a href="#accueil">Accueil</a>  
     <a href="#formations">Formations</a>  
     <a href="#business">Business</a>  
     <a href="#ajouter">Ajouter</a>  
     <a href="#espace">Mon espace</a>  
-  </nav><button class="menu" onclick="toggleMenu()">☰</button>  </header><main><section id="accueil" class="page hero">  
-  <div class="hero-content">  
-    <span class="badge">GRATUIT POUR LE LANCEMENT</span><h1>  
-  Apprends, découvre et trouve ton prochain business.  
-</h1>  <p>  
-  BizRadar rassemble des formations, des idées de business  
-  et des ressources pour apprendre à ton rythme.  
-</p>  <div class="actions">  
-  <a class="btn primary" href="#formations">  
-    Voir les formations  
-  </a>    <a class="btn light" href="#business">  
-    Explorer les business  
+  </nav>  <button class="menu" onclick="toggleMenu()">☰</button>
+
+</header>  <main>  <section id="accueil" class="hero">  
+  <div class="hero-content">  <span class="badge gold-badge">APPRENDRE LIBREMENT</span>  
+
+<h1>  
+  Des formations<br>  
+  concrètes pour<br>  
+  comprendre et<br>  
+  avancer.  
+</h1>  
+
+<p>  
+  Explore gratuitement la crypto, l'entrepreneuriat,  
+  le marketing, la technologie et la gestion financière  
+  avec de vraies leçons et des exercices utiles.  
+</p>  
+
+<div class="hero-actions">  
+  <a href="#formations" class="hero-btn">  
+    Découvrir les formations  
   </a>  
-</div>    </div>  
-</section><section class="stats">  
-  <div>  
-    <b>20+</b>  
-    <span>formations</span>  
-  </div>  <div>  
-    <b>15+</b>  
-    <span>idées business</span>  
-  </div>  <div>  
-    <b>100%</b>  
-    <span>ressources gratuites</span>  
-  </div>  <div>  
-    <b>24/7</b>  
-    <span>accès</span>  
+
+  <span class="launch">  
+    Lancement : 1er septembre  
+  </span>  
+</div>
+
+  </div>    <div class="hero-image">  
+    <div class="image-frame">  
+      <div class="hero-placeholder">  
+        <span>📊</span>  
+        <strong>BUSINESS</strong>  
+        <small>APPRENDRE • CRÉER • AVANCER</small>  
+      </div>  
+    </div>  
   </div>  
-</section><section id="formations" class="page">  <div class="heading">  
-    <h2>Formations</h2>  
-    <p>  
-      Choisis un sujet et commence gratuitement.  
-    </p>  
-  </div>  <div class="searchbar">  
-    <span>⌕</span>  
+</section>  <section class="intro" id="formations">    <div class="section-label">  
+    FORMATIONS GRATUITES  
+  </div>    <h2>  
+    Choisissez un sujet et avancez à votre rythme.  
+  </h2>    <p class="section-description">  
+    Chaque parcours contient quatre leçons, des exemples concrets,  
+    une checklist, un document gratuit et un mini-test propre au sujet.  
+  </p>    <div class="search-box">  
     <input  
       id="search"  
       type="search"  
-      placeholder="Rechercher une formation ou un business..."  
+      placeholder="Rechercher une formation, une catégorie ou un sujet..."  
       oninput="render()"  
-    >  
-  </div>  <div class="filters">  
-    <button onclick="setFilter('Toutes')">Toutes</button>  
-    <button onclick="setFilter('Crypto')">Crypto</button>  
-    <button onclick="setFilter('Business')">Business</button>  
-    <button onclick="setFilter('Marketing')">Marketing</button>  
-    <button onclick="setFilter('Débutant')">Débutant</button>  
-  </div>  <div id="courseGrid" class="grid"></div></section><section id="course" class="page detail">  <button class="back" onclick="go('#formations')">  
+    >  <button onclick="render()">  
+  Rechercher  
+</button>
+
+  </div>    <div class="filters-box">  <div class="filter">  
+  <label>Filtrer par catégorie</label>  
+
+  <select id="categoryFilter" onchange="setCategory(this.value)">  
+    <option value="Toutes">Toutes les catégories</option>  
+    <option value="Crypto">Crypto</option>  
+    <option value="Business">Business</option>  
+    <option value="Marketing">Marketing</option>  
+  </select>  
+</div>  
+
+<div class="filter">  
+  <label>Filtrer par niveau</label>  
+
+  <select id="levelFilter" onchange="setLevel(this.value)">  
+    <option value="Tous">Tous les niveaux</option>  
+    <option value="Débutant">Débutant</option>  
+    <option value="Intermédiaire">Intermédiaire</option>  
+    <option value="Avancé">Avancé</option>  
+  </select>  
+</div>
+
+  </div>    <div class="courses-count">  
+    <span id="courseCount">10 formations gratuites disponibles</span>  
+  </div>    <div id="courseGrid" class="course-grid"></div>  </section>  <section id="course" class="course-page">    <button class="back" onclick="go('#formations')">  
     ← Retour aux formations  
-  </button>  <div id="courseDetail"></div></section><section id="business" class="page">  <div class="heading">  
-    <h2>Idées de business</h2>  
-    <p>  
-      Des pistes à étudier avant de te lancer.  
-    </p>  
-  </div>  <div id="businessGrid" class="grid"></div></section><section id="ajouter" class="page">  <div class="heading">  
-    <h2>Ajouter une formation</h2>  
-    <p>  
-      Crée une fiche de formation avec son prix et ses informations.  
-    </p>  
-  </div>  <form id="addForm" class="form"><input  
+  </button>    <div id="courseDetail"></div>  </section>  <section id="business" class="business-section">    <div class="section-label">  
+    IDÉES BUSINESS  
+  </div>    <h2>  
+    Des pistes concrètes pour entreprendre.  
+  </h2>    <p class="section-description">  
+    Découvre des idées de business à étudier, tester et améliorer  
+    avant de te lancer.  
+  </p>    <div id="businessGrid" class="course-grid"></div>  </section>  <section id="ajouter" class="add-section">    <div class="section-label">  
+    CRÉER UNE FORMATION  
+  </div>    <h2>  
+    Ajoute ton propre parcours.  
+  </h2>    <p class="section-description">  
+    Crée une fiche de formation directement depuis BizRadar.  
+  </p>    <form id="addForm" class="form">  <input  
   id="newTitle"  
   required  
   placeholder="Nom de la formation"  
->  <textarea  
+>  
+
+<textarea  
   id="newDescription"  
   required  
-  placeholder="Description"  
-></textarea>  <select id="newCategory">  
+  placeholder="Description de la formation"  
+></textarea>  
+
+<select id="newCategory">  
   <option>Business</option>  
   <option>Crypto</option>  
   <option>Marketing</option>  
-</select>  <select id="newLevel">  
+</select>  
+
+<select id="newLevel">  
   <option>Débutant</option>  
   <option>Intermédiaire</option>  
   <option>Avancé</option>  
-</select>  <input
-id="newPrice"
-placeholder="Prix (ex : Gratuit)"
+</select>  
 
-> 
+<input  
+  id="newPrice"  
+  placeholder="Prix (ex : Gratuit)"  
+>  
 
-<input
-id="newImage"
-placeholder="URL de l'image (facultatif)"
+<input  
+  id="newImage"  
+  placeholder="URL de l'image (facultatif)"  
+>  
 
-> 
-
-<button class="btn primary" type="submit">  
+<button class="form-button" type="submit">  
   Ajouter la formation  
-</button>    </form></section><section id="espace" class="page">  <div class="heading">  
-    <h2>Mon espace</h2>  
-    <p>  
-      Retrouve ta progression.  
-    </p>  
-  </div>  <div class="profile"><div class="avatar">👤</div>  <div>  
+</button>
+
+  </form>  </section>  <section id="espace" class="space-section">    <div class="section-label">  
+    MON ESPACE  
+  </div>    <h2>  
+    Continue ton apprentissage.  
+  </h2>    <p class="section-description">  
+    Retrouve tes formations et ta progression.  
+  </p>    <div class="profile">  <div class="avatar">  
+  BR  
+</div>  
+
+<div>  
   <h3>Mon apprentissage</h3>  
-  <p id="progressText">  
-    0 formation terminée  
-  </p>  
-</div>    </div>  <div id="savedCourses" class="grid"></div></section></main><footer>  
-  © 2026 BizRadar — Apprendre avant d'entreprendre.  
-</footer><script src="app.js"></script></body>  
+  <p id="progressText">0 formation terminée</p>  
+</div>
+
+  </div>    <div id="savedCourses" class="course-grid"></div>  </section>  </main>  <footer>  
+  <strong>BizRadar</strong>  
+  <span>Apprendre avant d'entreprendre.</span>  
+  <small>© 2026 BizRadar</small>  
+</footer>  <script src="app.js"></script>  </body>  
 </html>
