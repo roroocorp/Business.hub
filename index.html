@@ -1,1 +1,115 @@
+<!DOCTYPE html><html lang="fr">  <head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>BizRadar — Business & Formations</title>  
+  <link rel="stylesheet" href="styles.css">  
+</head><body><header class="topbar">  
+  <a class="logo" href="#accueil">🚀 BizRadar</a>  <nav>  
+    <a href="#accueil">Accueil</a>  
+    <a href="#formations">Formations</a>  
+    <a href="#business">Business</a>  
+    <a href="#ajouter">Ajouter</a>  
+    <a href="#espace">Mon espace</a>  
+  </nav><button class="menu" onclick="toggleMenu()">☰</button>  </header><main><section id="accueil" class="page hero">  
+  <div class="hero-content">  
+    <span class="badge">GRATUIT POUR LE LANCEMENT</span><h1>  
+  Apprends, découvre et trouve ton prochain business.  
+</h1>  <p>  
+  BizRadar rassemble des formations, des idées de business  
+  et des ressources pour apprendre à ton rythme.  
+</p>  <div class="actions">  
+  <a class="btn primary" href="#formations">  
+    Voir les formations  
+  </a>    <a class="btn light" href="#business">  
+    Explorer les business  
+  </a>  
+</div>    </div>  
+</section><section class="stats">  
+  <div>  
+    <b>20+</b>  
+    <span>formations</span>  
+  </div>  <div>  
+    <b>15+</b>  
+    <span>idées business</span>  
+  </div>  <div>  
+    <b>100%</b>  
+    <span>ressources gratuites</span>  
+  </div>  <div>  
+    <b>24/7</b>  
+    <span>accès</span>  
+  </div>  
+</section><section id="formations" class="page">  <div class="heading">  
+    <h2>Formations</h2>  
+    <p>  
+      Choisis un sujet et commence gratuitement.  
+    </p>  
+  </div>  <div class="searchbar">  
+    <span>⌕</span>  
+    <input  
+      id="search"  
+      type="search"  
+      placeholder="Rechercher une formation ou un business..."  
+      oninput="render()"  
+    >  
+  </div>  <div class="filters">  
+    <button onclick="setFilter('Toutes')">Toutes</button>  
+    <button onclick="setFilter('Crypto')">Crypto</button>  
+    <button onclick="setFilter('Business')">Business</button>  
+    <button onclick="setFilter('Marketing')">Marketing</button>  
+    <button onclick="setFilter('Débutant')">Débutant</button>  
+  </div>  <div id="courseGrid" class="grid"></div></section><section id="course" class="page detail">  <button class="back" onclick="go('#formations')">  
+    ← Retour aux formations  
+  </button>  <div id="courseDetail"></div></section><section id="business" class="page">  <div class="heading">  
+    <h2>Idées de business</h2>  
+    <p>  
+      Des pistes à étudier avant de te lancer.  
+    </p>  
+  </div>  <div id="businessGrid" class="grid"></div></section><section id="ajouter" class="page">  <div class="heading">  
+    <h2>Ajouter une formation</h2>  
+    <p>  
+      Crée une fiche de formation avec son prix et ses informations.  
+    </p>  
+  </div>  <form id="addForm" class="form"><input  
+  id="newTitle"  
+  required  
+  placeholder="Nom de la formation"  
+>  <textarea  
+  id="newDescription"  
+  required  
+  placeholder="Description"  
+></textarea>  <select id="newCategory">  
+  <option>Business</option>  
+  <option>Crypto</option>  
+  <option>Marketing</option>  
+</select>  <select id="newLevel">  
+  <option>Débutant</option>  
+  <option>Intermédiaire</option>  
+  <option>Avancé</option>  
+</select>  <input
+id="newPrice"
+placeholder="Prix (ex : Gratuit)"
 
+> 
+
+<input
+id="newImage"
+placeholder="URL de l'image (facultatif)"
+
+> 
+
+<button class="btn primary" type="submit">  
+  Ajouter la formation  
+</button>    </form></section><section id="espace" class="page">  <div class="heading">  
+    <h2>Mon espace</h2>  
+    <p>  
+      Retrouve ta progression.  
+    </p>  
+  </div>  <div class="profile"><div class="avatar">👤</div>  <div>  
+  <h3>Mon apprentissage</h3>  
+  <p id="progressText">  
+    0 formation terminée  
+  </p>  
+</div>    </div>  <div id="savedCourses" class="grid"></div></section></main><footer>  
+  © 2026 BizRadar — Apprendre avant d'entreprendre.  
+</footer><script src="app.js"></script></body>  
+</html>
